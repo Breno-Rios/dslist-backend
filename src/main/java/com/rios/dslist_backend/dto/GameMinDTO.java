@@ -1,9 +1,9 @@
 package com.rios.dslist_backend.dto;
 
 import com.rios.dslist_backend.entities.Game;
+import com.rios.dslist_backend.projections.GameMinProjection;
 
 public class GameMinDTO {
-	
 
 	private Long id;
 	private String title;
@@ -11,20 +11,28 @@ public class GameMinDTO {
 	private String imgUrl;
 	private String shortDescription;
 
-	
 	public GameMinDTO() {
-		
+
 	}
-	
+
 	public GameMinDTO(Game entity) {
-		
+
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
-		shortDescription= entity.getShortDescription();
-		
-		
+		shortDescription = entity.getShortDescription();
+
+	}
+
+	public GameMinDTO(GameMinProjection projection) {
+
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+
 	}
 
 	public Long getId() {
@@ -46,11 +54,5 @@ public class GameMinDTO {
 	public String getShortDescription() {
 		return shortDescription;
 	}
-	
-	
-	
-	
-	
-	
 
 }
